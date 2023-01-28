@@ -8,29 +8,29 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/Nextion Display Code/include",
-                "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/Nextion Display Code/src",
-                "/Users/ohydon/.platformio/packages/framework-arduino-avr/cores/arduino",
-                "/Users/ohydon/.platformio/packages/framework-arduino-avr/variants/standard",
-                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
-                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/HID/src",
-                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
-                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
-                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "D:/Documents/FBR_22-23/include",
+                "D:/Documents/FBR_22-23/src",
+                "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/variants/standard",
+                "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/Nextion Display Code/include",
-                    "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/Nextion Display Code/src",
-                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/cores/arduino",
-                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/variants/standard",
-                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
-                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/HID/src",
-                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
-                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
-                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "D:/Documents/FBR_22-23/include",
+                    "D:/Documents/FBR_22-23/src",
+                    "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "C:/Users/ohydo/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     ""
                 ]
             },
@@ -45,7 +45,7 @@
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
-            "compilerPath": "/Users/ohydon/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerPath": "C:/Users/ohydo/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
             "compilerArgs": [
                 "-mmcu=atmega328p",
                 ""
