@@ -1,0 +1,56 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/Nextion Display Code/include",
+                "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/Nextion Display Code/src",
+                "/Users/ohydon/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/Users/ohydon/.platformio/packages/framework-arduino-avr/variants/standard",
+                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/Nextion Display Code/include",
+                    "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/Nextion Display Code/src",
+                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/Users/ohydon/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60106",
+                "ARDUINO_AVR_UNO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/Users/ohydon/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
