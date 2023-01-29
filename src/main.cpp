@@ -1,5 +1,11 @@
 #include <Arduino.h>
 #include "graphs.h"
+#include <EasyNextionLibrary.h>
+
+
+void setup(){
+  EasyNex myNex(Serial);
+}
 
 void test_function(){
   delay(300);
