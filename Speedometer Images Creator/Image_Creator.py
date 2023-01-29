@@ -1,7 +1,7 @@
 from PIL import Image
 
-folder_path = "/Users/ohydon/Documents/Uni Files/IA/Full Blue Racing/NexImages/Speedometer Images Creator/"
-
+folder_path = "D:\\Documents\\Uni Files\\IA\\Full Blue Racing\\Nextion-Images\\Speedometer Images Creator\\"
+image_size = (173,175)
 
 def combine_images(angle,name):
     arrow_path = folder_path+"Rotatable Arrow.png"
@@ -24,7 +24,7 @@ def combine_images(angle,name):
     height = 0
 
     background_image.paste(arrow_image, (width, height), arrow_image)
-    
+    background_image = background_image.resize(image_size)
     background_image.save("./Image Destination/"+name+".bmp", format="bmp")
 
 
