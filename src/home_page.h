@@ -55,9 +55,9 @@ void updateOilPressure(int value, EasyNex myNex){
     
     int colour = 1024;  //Colour value for a visual warning on the guage
     if (scaled_for_bar_value > in_red_bound){
-        int colour = 40960;
+        colour = 40960;
     }else if (scaled_for_bar_value > in_orange_band){
-        int colour = 45504;
+        colour = 45504;
     };
     myNex.writeNum("oil_guage.pco",colour);
 }
@@ -75,19 +75,12 @@ void updateTemp(int value, EasyNex myNex){
     
     int colour = 1024;  //Colour value for a visual warning on the guage -inital = green
     if (scaled_for_bar_value > in_red_bound){
-        int colour = 40960; //red
+        colour = 40960; //red
     }else if (scaled_for_bar_value > in_orange_band){
-        int colour = 45504; //orange
+        colour = 45504; //orange
     };
     myNex.writeNum("temp_guage.pco",colour);
 }
-
-void setWarningLights(int battery_voltage,int coolant_temp, int air_pressure,EasyNex myNex){ //Just runs the updates only for simplification
-    updateAirPressure(air_pressure, myNex);
-    updateCoolantTemp(coolant_temp, myNex);
-    updateBatteryVoltage(battery_voltage,myNex);
-}
-
 void updateCoolantTemp(int temp,EasyNex myNex){ //Turns warning light on/off
     int max_safe_val = 100;
     int min_safe_val = 0;
@@ -114,3 +107,25 @@ void updateBatteryVoltage(int voltage, EasyNex myNex){ //Turns warning light on/
         colour = 40960; //red
     }
 }
+void setWarningLights(int battery_voltage,int coolant_temp, int air_pressure,EasyNex myNex){ //Just runs the updates only for simplification
+    updateAirPressure(air_pressure, myNex);
+    updateCoolantTemp(coolant_temp, myNex);
+    updateBatteryVoltage(battery_voltage,myNex);
+}
+
+
+
+void updateHomePage(EasyNex myNex, int revs,
+ int speed, int stick_position, int oil_pressure,
+  int engine_temp, int air_pressure, int coolant_temp, int battery_voltage){
+
+
+        setWarningLights(battery_voltage,coolant_temp,air_pressure, myNex);
+        updateTachometer(revs, myNex);
+        updateSpeedometer(speed, myNex);
+        updateStickPosition(stick_position,myNex);
+        updateTemp(engine_temp,myNex);
+        updateOilPressure(oil_pressure,myNex);
+
+}
+
