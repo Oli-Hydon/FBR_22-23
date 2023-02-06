@@ -33,7 +33,7 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 2.0,
+          "drill": 1.52,
           "height": 3.0,
           "width": 3.0
         },
@@ -333,7 +333,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Untitled.kicad_pro",
+    "filename": "v2.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -366,7 +366,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "specctra_dsn": "",
+      "specctra_dsn": "Routing Stuff/v2.dsn",
       "step": "",
       "vrml": ""
     },
@@ -412,7 +412,7 @@
   },
   "sheets": [
     [
-      "f7f24c24-eda0-4b25-b51f-6f0bd8475398",
+      "b5257f86-600b-4330-9861-5ab391b0b699",
       ""
     ]
   ],
