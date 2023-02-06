@@ -88,6 +88,8 @@ void updateCoolantTemp(int temp,EasyNex myNex){ //Turns warning light on/off
     if ((temp> max_safe_val)||(temp < min_safe_val)){
         colour = 40960; //red
     }
+    myNex.writeNum("coolant_temp.pco",colour);
+
 }
 
 void updateAirPressure(int pressure, EasyNex myNex){ //Turns warning light on/of 
@@ -97,6 +99,8 @@ void updateAirPressure(int pressure, EasyNex myNex){ //Turns warning light on/of
     if ((pressure> max_safe_val)||(pressure < min_safe_val)){
         colour = 40960; //red
     }
+    myNex.writeNum("air_pressure.pco",colour);
+
 }
 
 void updateBatteryVoltage(int voltage, EasyNex myNex){ //Turns warning light on/off
@@ -106,6 +110,8 @@ void updateBatteryVoltage(int voltage, EasyNex myNex){ //Turns warning light on/
     if ((voltage> max_safe_val)||(voltage < min_safe_val)){
         colour = 40960; //red
     }
+
+    myNex.writeNum("battery_volts.pco",colour);
 }
 void setWarningLights(int battery_voltage,int coolant_temp, int air_pressure,EasyNex myNex){ //Just runs the updates only for simplification
     updateAirPressure(air_pressure, myNex);
