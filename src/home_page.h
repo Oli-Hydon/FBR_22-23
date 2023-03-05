@@ -19,7 +19,6 @@ void updateTachometer(uint32_t value,EasyNex myNex){
 
 
 void updateSpeedometer(uint32_t value,EasyNex myNex){
-    
     uint32_t number_of_images = 270;     //There are actually 271 but the 0th image doesnt count
     uint32_t offset = 211;
     uint32_t image_number;
@@ -121,17 +120,20 @@ void setWarningLights(int battery_voltage,int coolant_temp, int air_pressure,Eas
 
 
 
-void updateHomePage(EasyNex myNex, int revs,
- int speed, int stick_position, int oil_pressure,
-  int engine_temp, int air_pressure, int coolant_temp, int battery_voltage){
+void updateHomePage(EasyNex myNex, int *engine_rpm, int* speed, int* stick_position,
+                         int* oil_pressure, int* engine_temperature, int* air_pressure, int* coolant_temp,
+                         int* battery_voltage){
+
+      
+
+        setWarningLights(*battery_voltage,*coolant_temp,*air_pressure, myNex);
+        updateTachometer(*engine_rpm, myNex);
+        updateSpeedometer(*speed, myNex);
+        updateStickPosition(*stick_position,myNex);
+        updateTemp(*engine_temperature,myNex);
+        updateOilPressure(*oil_pressure,myNex);
 
 
-        setWarningLights(battery_voltage,coolant_temp,air_pressure, myNex);
-        updateTachometer(revs, myNex);
-        updateSpeedometer(speed, myNex);
-        updateStickPosition(stick_position,myNex);
-        updateTemp(engine_temp,myNex);
-        updateOilPressure(oil_pressure,myNex);
 
 }
 
