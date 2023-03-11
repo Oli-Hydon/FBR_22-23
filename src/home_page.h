@@ -1,8 +1,10 @@
 #include <Arduino.h>
 #include <EasyNextionLibrary.h>
 
-void updateTachometer(uint32_t value,EasyNex myNex){
+void updateTachometer(int data_buffer[48],EasyNex myNex){
     
+    uint16_t value = data_buffer[2];
+
     uint32_t number_of_images = 208;     //There are actually 209 but the 0th image doesnt count
 
     uint32_t offset = 2;
@@ -18,7 +20,11 @@ void updateTachometer(uint32_t value,EasyNex myNex){
 }
 
 
-void updateSpeedometer(uint32_t value,EasyNex myNex){
+void updateSpeedometer(int data_buffer[48],EasyNex myNex){
+
+    uint16_t value = 0;
+
+
     uint32_t number_of_images = 270;     //There are actually 271 but the 0th image doesnt count
     uint32_t offset = 211;
     uint32_t image_number;
@@ -33,7 +39,10 @@ void updateSpeedometer(uint32_t value,EasyNex myNex){
     myNex.writeNum("speedometer.pic",image_number);
 }
 
-void updateStickPosition(int position, EasyNex myNex){
+void updateStickPosition(int data_buffer[48], EasyNex myNex){
+
+    uint16_t position = data_buffer[6];
+
     if ((position > 0) && (position < 7)){
         int offset = 481;
         int image_number = offset+position;
@@ -41,7 +50,10 @@ void updateStickPosition(int position, EasyNex myNex){
     }
 }
 
-void updateOilPressure(int value, EasyNex myNex){
+void updateOilPressure(int data_buffer[48], EasyNex myNex){
+
+    uint16_t value = 0 ;
+
     int in_red_bound = 90; //change this is not pressure but value on progress bar
     int in_orange_band = 80; //"" ""
     int max_val = 150; // The maximum value of oil pressure to be 100 on the progress bar
@@ -61,7 +73,11 @@ void updateOilPressure(int value, EasyNex myNex){
     myNex.writeNum("oil_guage.pco",colour);
 }
 
-void updateTemp(int value, EasyNex myNex){
+void updateTemp(int data_buffer[48], EasyNex myNex){
+
+    uint16_t value = 0;
+
+
     int in_red_bound = 90; //change this is not temp but value on progress bar
     int in_orange_band = 80; //"" ""
     int max_val = 150; // The maximum value of temperature to be 100 on the progress bar
@@ -80,9 +96,13 @@ void updateTemp(int value, EasyNex myNex){
     };
     myNex.writeNum("temp_guage.pco",colour);
 }
-void updateCoolantTemp(int temp,EasyNex myNex){ //Turns warning light on/off
-    int max_safe_val = 100;
-    int min_safe_val = 0;
+void updateCoolantTemp(int data_buffer[48],EasyNex myNex){ //Turns warning light on/off
+
+    uint16_t temp = data_buffer[4];
+
+
+    uint16_t max_safe_val = 100;
+    uint16_t min_safe_val = 0;
     int colour = 1024; //green
     if ((temp> max_safe_val)||(temp < min_safe_val)){
         colour = 40960; //red
@@ -91,9 +111,12 @@ void updateCoolantTemp(int temp,EasyNex myNex){ //Turns warning light on/off
 
 }
 
-void updateAirPressure(int pressure, EasyNex myNex){ //Turns warning light on/of 
-    int max_safe_val = 100;
-    int min_safe_val = 10;
+void updateAirPressure(int data_buffer[48], EasyNex myNex){ //Turns warning light on/of 
+
+    uint16_t pressure = data_buffer[0];
+
+    uint16_t max_safe_val = 100;
+    uint16_t min_safe_val = 10;
     int colour = 1024; //green
     if ((pressure> max_safe_val)||(pressure < min_safe_val)){
         colour = 40960; //red
@@ -102,9 +125,12 @@ void updateAirPressure(int pressure, EasyNex myNex){ //Turns warning light on/of
 
 }
 
-void updateBatteryVoltage(int voltage, EasyNex myNex){ //Turns warning light on/off
-    int max_safe_val = 12.5;
-    int min_safe_val = 11.5;
+void updateBatteryVoltage(int data_buffer[48], EasyNex myNex){ //Turns warning light on/off
+
+    uint16_t voltage = data_buffer[24];
+
+    uint16_t max_safe_val = 12.5;
+    uint16_t min_safe_val = 11.5;
     int colour = 1024; //green
     if ((voltage> max_safe_val)||(voltage < min_safe_val)){
         colour = 40960; //red
@@ -112,26 +138,24 @@ void updateBatteryVoltage(int voltage, EasyNex myNex){ //Turns warning light on/
 
     myNex.writeNum("battery_volts.pco",colour);
 }
-void setWarningLights(int battery_voltage,int coolant_temp, int air_pressure,EasyNex myNex){ //Just runs the updates only for simplification
-    updateAirPressure(air_pressure, myNex);
-    updateCoolantTemp(coolant_temp, myNex);
-    updateBatteryVoltage(battery_voltage,myNex);
+void setWarningLights(int data_buffer[48],EasyNex myNex){ //Just runs the updates only for simplification
+    updateAirPressure(data_buffer, myNex);
+    updateCoolantTemp(data_buffer, myNex);
+    updateBatteryVoltage(data_buffer,myNex);
 }
 
 
 
-void updateHomePage(EasyNex myNex, int *engine_rpm, int* speed, int* stick_position,
-                         int* oil_pressure, int* engine_temperature, int* air_pressure, int* coolant_temp,
-                         int* battery_voltage){
+void updateHomePage(EasyNex myNex,int data_buffer[48]){
 
-      
 
-        setWarningLights(*battery_voltage,*coolant_temp,*air_pressure, myNex);
-        updateTachometer(*engine_rpm, myNex);
-        updateSpeedometer(*speed, myNex);
-        updateStickPosition(*stick_position,myNex);
-        updateTemp(*engine_temperature,myNex);
-        updateOilPressure(*oil_pressure,myNex);
+
+        setWarningLights(data_buffer, myNex);
+        updateTachometer(data_buffer, myNex);
+        updateSpeedometer(data_buffer, myNex);
+        updateStickPosition(data_buffer,myNex);
+        updateTemp(data_buffer,myNex);
+        updateOilPressure(data_buffer,myNex);
 
 
 
