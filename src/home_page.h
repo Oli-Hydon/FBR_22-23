@@ -68,7 +68,7 @@ void updateTemp(int data_buffer[48], EasyNex myNex){
 
     int in_red_bound = 90; //change this is not temp but value on progress bar
     int in_orange_band = 80; //"" ""
-    int max_val = 150; // The maximum value of temperature to be 100 on the progress bar
+    int max_val = 200; // The maximum value of temperature to be 100 on the progress bar
 
     int scaled_for_bar_value = value * (100/max_val);
     if (scaled_for_bar_value > 100){
@@ -102,8 +102,8 @@ void updateAirPressure(int data_buffer[48], EasyNex myNex){ //Turns warning ligh
 
     uint16_t pressure = getFromBuffer(0,2,data_buffer);
 
-    uint16_t max_safe_val = 100;
-    uint16_t min_safe_val = 10;
+    uint16_t max_safe_val = 120;
+    uint16_t min_safe_val = 50;
     int colour = 1024; //green
     if ((pressure> max_safe_val)||(pressure < min_safe_val)){
         colour = 40960; //red

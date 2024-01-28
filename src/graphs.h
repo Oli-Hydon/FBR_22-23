@@ -32,14 +32,14 @@ void updateRevsGraph(int data_buffer[48],EasyNex myNex){
 }
 void updateEngineTempGraph(int data_buffer[48],EasyNex myNex){
     int temp = getFromBuffer(4,2,data_buffer);
-    int max = 100;
+    int max = 200;
     int min = 0;
     int graph_value = convertToGraphValue(min,max,temp);
     sendValueToGraph("temp_var.val",graph_value,myNex);
 }
 void updateVelocityGraph(int data_buffer[48],EasyNex myNex){
     int revs = getFromBuffer(0,2,data_buffer);
-    int max = 120;
+    int max = 255;
     int min = 0;
     int graph_value = convertToGraphValue(min,max,revs);
     sendValueToGraph("vel_var.val",graph_value, myNex);
